@@ -1,7 +1,8 @@
 ---
+advisory: swarm-standalone
+hide_from_sitemap: true
 description: Swarm discovery
-keywords:
-- docker, swarm, clustering,  discovery
+keywords: docker, swarm, clustering,  discovery
 title: Docker Swarm discovery
 ---
 

@@ -1,7 +1,8 @@
 ---
+advisory: swarm-standalone
+hide_from_sitemap: true
 description: Swarm and transport layer security
-keywords:
-- docker, swarm, TLS, discovery, security,  certificates
+keywords: docker, swarm, TLS, discovery, security,  certificates
 title: Configure Docker Swarm for TLS
 ---
 

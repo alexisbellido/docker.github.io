@@ -1,9 +1,8 @@
 ---
-redirect_from:
-- /swarm/swarm_at_scale/about/
+advisory: swarm-standalone
+hide_from_sitemap: true
 description: Try Swarm at scale
-keywords:
-- docker, swarm, scale, voting, application, architecture
+keywords: docker, swarm, scale, voting, application, architecture
 title: Learn the application architecture
 ---
 

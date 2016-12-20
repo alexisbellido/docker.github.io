@@ -1,15 +1,11 @@
 ---
+description: Learn how to upgrade your Docker Trusted Registry to the latest major release.
+keywords: docker, dtr, upgrade, install
 redirect_from:
 - /docker-trusted-registry/install/upgrade/
 - /docker-trusted-registry/upgrade/upgrade-major/
-description: Learn how to upgrade your Docker Trusted Registry to the latest major
-  release.
-keywords:
-- docker, dtr, upgrade, install
 title: Upgrade from 1.4.3
 ---
-
-# Upgrade from DTR 1.4.3
 
 The first step in upgrading to Docker Trusted Registry (DTR) 2.0, is ensuring
 you are running DTR 1.4.3. If that's not the case, start by upgrading your
@@ -67,7 +63,7 @@ To start the migration:
 2.  Use the docker/dtr migrate command.
 
     When you run the docker/dtr migrate command, Docker pulls the necessary
-    images from Docker Hub. If the the host where DTR 1.4.3 is not connected
+    images from Docker Hub. If the host where DTR 1.4.3 is not connected
     to the internet, you need to
     [download the images to the host](../install-dtr-offline.md).
 
@@ -187,7 +183,7 @@ replicas:
 
 3.  Check that all replicas are running.
 
-    In your browser, navigate to the the Docker **Universal Control Plane**
+    In your browser, navigate to the Docker **Universal Control Plane**
     web UI, and navigate to the **Applications** screen. All replicas should
     be displayed.
 

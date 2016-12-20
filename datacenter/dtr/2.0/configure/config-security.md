@@ -1,13 +1,10 @@
 ---
+description: Security configuration for Docker Trusted Registry
+keywords: docker, documentation, about, technology, understanding, configuration, security, enterprise, hub, registry
 redirect_from:
 - /docker-trusted-registry/configure/config-security/
-description: Security configuration for Docker Trusted Registry
-keywords:
-- docker, documentation, about, technology, understanding, configuration, security, enterprise, hub, registry
 title: Security configuration
 ---
-
-# Security configuration
 
 This document describes the security settings you need to configure.
 

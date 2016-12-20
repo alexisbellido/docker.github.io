@@ -1,7 +1,8 @@
 ---
+advisory: swarm-standalone
+hide_from_sitemap: true
 description: Swarm and transport layer security
-keywords:
-- docker, swarm, TLS, discovery, security,  certificates
+keywords: docker, swarm, TLS, discovery, security, certificates
 title: Use Docker Swarm with TLS
 ---
 
@@ -80,7 +81,7 @@ authentication.
 
 ![](images/trust-diagram.jpg)
 
-The trusted third party in this diagram is the the Certificate Authority (CA)
+The trusted third party in this diagram is the Certificate Authority (CA)
 server. Like the country in the passport example, a CA creates, signs, issues,
 revokes certificates. Trust is established by installing the CA's root
 certificate on the host running the Docker Engine daemon. The Docker Engine CLI then requests

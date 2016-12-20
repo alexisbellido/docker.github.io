@@ -1,7 +1,8 @@
 ---
+advisory: swarm-standalone
+hide_from_sitemap: true
 description: Swarm and container networks
-keywords:
-- docker, swarm, clustering,  networking
+keywords: docker, swarm, clustering,  networking
 title: Swarm and container networks
 ---
 

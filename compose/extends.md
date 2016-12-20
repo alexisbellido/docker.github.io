@@ -1,7 +1,6 @@
 ---
 description: How to use Docker Compose's extends keyword to share configuration between files and projects
-keywords:
-- fig, composition, compose, docker, orchestration, documentation, docs
+keywords: fig, composition, compose, docker, orchestration, documentation, docs
 title: Share Compose configurations between files and projects
 ---
 
@@ -268,7 +267,7 @@ common configuration:
 ## Adding and overriding configuration
 
 Compose copies configurations from the original service over to the local one.
-If a configuration option is defined in both the original service the local
+If a configuration option is defined in both the original service and the local
 service, the local value *replaces* or *extends* the original value.
 
 For single-value options like `image`, `command` or `mem_limit`, the new value

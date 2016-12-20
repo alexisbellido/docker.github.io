@@ -1,9 +1,8 @@
 ---
+description: Overview of docker-compose CLI
+keywords: fig, composition, compose, docker, orchestration, cli,  docker-compose
 redirect_from:
 - /compose/reference/docker-compose/
-description: Overview of docker-compose CLI
-keywords:
-- fig, composition, compose, docker, orchestration, cli,  docker-compose
 title: Overview of docker-compose CLI
 ---
 
@@ -11,7 +10,7 @@ This page provides the usage information for the `docker-compose` Command.
 You can also see this information by running `docker-compose --help` from the
 command line.
 
-```
+```none
 Define and run multi-container applications with Docker.
 
 Usage:

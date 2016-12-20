@@ -1,9 +1,8 @@
 ---
+description: How to set up and use certificates with a registry to verify access
+keywords: Usage, registry, repository, client, root, certificate, docker, apache, ssl, tls, documentation, examples, articles, tutorials
 redirect_from:
 - /engine/articles/certificates/
-description: How to set up and use certificates with a registry to verify access
-keywords:
-- Usage, registry, repository, client, root, certificate, docker, apache, ssl, tls, documentation, examples, articles,  tutorials
 title: Verify repository client with certificates
 ---
 
@@ -39,7 +38,7 @@ The following illustrates a configuration with multiple certs:
 
 ```
     /etc/docker/certs.d/        <-- Certificate directory
-    └── localhost               <-- Hostname
+    └── localhost:5000          <-- Hostname:port
        ├── client.cert          <-- Client certificate
        ├── client.key           <-- Client key
        └── localhost.crt        <-- Certificate authority that signed

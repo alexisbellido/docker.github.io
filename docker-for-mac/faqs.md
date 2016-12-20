@@ -1,9 +1,8 @@
 ---
+description: Frequently asked questions
+keywords: mac faqs
 redirect_from:
 - /mackit/faqs/
-description: Frequently asked questions
-keywords:
-- mac faqs
 title: Frequently asked questions (FAQ)
 ---
 
@@ -22,9 +21,9 @@ This topic also has more information about the two channels.
 
 A: Two different download channels are available for Docker for Mac:
 
-* The stable channel provides a general availability release-ready installer for a fully baked and tested, more reliable app. The stable version of Docker for Mac comes with the latest released version of Docker Engine. The release schedule is synched with Docker Engine releases and hotfixes.
+* The **stable channel** provides a general availability release-ready installer for a fully baked and tested, more reliable app. The stable version of Docker for Mac comes with the latest released version of Docker Engine. The release schedule is synched with Docker Engine releases and hotfixes. On the stable channel, you can select whether to send usage statistics and other data.
 
-* The beta channel provides an installer with new features we are working on, but is not necessarily fully tested. It comes with the experimental version of Docker Engine. Bugs, crashes and issues are more likely to occur with the beta app, but you get a chance to preview new functionality, experiment, and provide feedback as the apps evolve. Releases are typically more frequent than for stable, often one or more per month.
+* The **beta channel** provides an installer with new features we are working on, but is not necessarily fully tested. It comes with the experimental version of Docker Engine. Bugs, crashes and issues are more likely to occur with the beta app, but you get a chance to preview new functionality, experiment, and provide feedback as the apps evolve. Releases are typically more frequent than for stable, often one or more per month. Usage statistics and crash reports are sent by default. You do not have the option to disable this on the beta channel.
 
 **Q: Can I switch back and forth between stable and beta versions of Docker for Mac?**
 
@@ -118,9 +117,24 @@ Networking topic.
 
 ### How do I add custom CA certificates?
 
-Starting with Docker for Mac Beta 27 Release Notes (2016-09-28 1.12.2-rc1-beta27) and follow-on Beta releases, all trusted certificate authorities (CAs) (root or intermediate) are supported. (**Note:** Custom CA certificates are not yet supported on stable releases.)
+Starting with Docker for Mac Beta 27 and Stable 1.12.3, all trusted certificate authorities (CAs) (root or intermediate) are supported.
 
-Docker for Mac creates a certificate bundle of all user-trusted CAs based on the Mac Keychain, and appends it to Moby trusted certificates. So if an enterprise SSL certificate is trusted by the user on the host, it will be trusted by Docker for Mac.
+Docker for Mac creates a certificate bundle of all user-trusted CAs based on the
+Mac Keychain, and appends it to Moby trusted certificates. So if an enterprise
+SSL certificate is trusted by the user on the host, it will be trusted by Docker
+for Mac.
+
+To manually add a custom, self-signed certificate, start by adding
+the certificate to the Mac’s keychain, which will be picked up by Docker for
+Mac. Here is an example.
+
+```
+sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain ca.crt
+```
+
+For a complete explanation of how to do this, see the blog post [Adding Self-signed Registry Certs
+to Docker & Docker for
+Mac](http://container-solutions.com/adding-self-signed-registry-certs-docker-mac/).
 
 ### What are system requirements for Docker for Mac?
 

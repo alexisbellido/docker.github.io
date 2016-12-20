@@ -1,9 +1,8 @@
 ---
+description: Change log / release notes per release
+keywords: pinata, alpha, tutorial
 redirect_from:
 - /mackit/release-notes/
-description: Change log / release notes per release
-keywords:
-- pinata, alpha, tutorial
 title: Docker for Mac release notes
 ---
 
@@ -17,6 +16,71 @@ Release notes for _stable_ and _beta_ releases are listed below. You can learn a
 * [Beta Release Notes](release-notes.md#beta-release-notes)
 
 ## Stable Release Notes
+
+### Docker for Mac 1.12.3, 2016-11-09 (stable)
+
+**Upgrades**
+
+- Docker 1.12.3
+- Linux Kernel 4.4.27
+- Notary 0.4.2
+- Docker Machine 0.8.2
+- Docker Compose 1.8.1
+- Kernel vsock driver v7
+- aufs 20160912
+
+**Bug fixes and minor changes**
+
+**General**
+
+- Fixed an issue where the whale animation during setting change was inconsistent
+
+- Fixed an issue where some windows stayed hidden behind another app
+
+- Fixed an issue where the Docker status would continue to be yellow/animated after the VM had started correctly
+
+- Fixed an issue where Docker for Mac was incorrectly reported as updated
+
+- Channel is now displayed in About box
+
+- Crash reports are sent over Bugsnag rather than HockeyApp
+
+- Fixed an issue where some windows did not claim focus correctly
+
+- Added UI when switching channel to prevent user losing containers and settings
+
+- Check disk capacity before toolbox import
+
+- Import certificates in `etc/ssl/certs/ca-certificates.crt`
+
+- disk: make the "flush" behaviour configurable for database-like workloads. This works around a performance regression in 1.12.1.
+
+**Networking**
+
+- Proxy: Fixed application of system or custom proxy settings over container restart
+
+- DNS: reduce the number of UDP sockets consumed on the host
+
+- VPNkit: improve the connection-limiting code to avoid running out of sockets on the host
+
+- UDP: handle diagrams bigger than 2035, up to the configured macOS kernel limit
+
+- UDP: make the forwarding more robust; drop packets and continue rather than stopping
+
+**File sharing**
+
+- osxfs: Fixed the prohibition of chown on read-only or mode 0 files, (fixes
+  [https://github.com/docker/for-mac/issues/117](https://github.com/docker/for-mac/issues/117),
+  [https://github.com/docker/for-mac/issues/263](https://github.com/docker/for-mac/issues/263),
+  [https://github.com/docker/for-mac/issues/633](https://github.com/docker/for-mac/issues/633))
+
+- osxfs: Fixed race causing some reads to run forever
+
+- osxfs: Fixed a simultaneous volume mount race which can result in a crash
+
+**Moby**
+
+- Increase default ulimit for memlock (fixes [https://github.com/docker/for-mac/issues/801](https://github.com/docker/for-mac/issues/801))
 
 ### Docker for Mac 1.12.1, 2016-09-16 (stable)
 
@@ -66,7 +130,7 @@ Release notes for _stable_ and _beta_ releases are listed below. You can learn a
 
 * Use Mac System Configuration database to detect DNS
 
-**Filesharing (osxfs)**
+**File sharing (osxfs)**
 
 * Fixed thread leak
 
@@ -137,6 +201,101 @@ events or unexpected unmounts.
 * Docker Compose 1.8.0
 
 ## Beta Release Notes
+
+### Beta 33.1 Release Notes (2016-12-16 1.13.0-rc3-beta33.1)
+
+>**Important Note:** Plugins installed using the experimental "managed plugins" feature in Docker 1.12 must be removed/uninstalled before upgrading.
+
+**Hotfix**
+
+- Fixed issue where sometimes TRIM would cause the VM to hang
+
+### Beta 33 Release Notes (2016-12-15 1.13.0-rc3-beta33)
+
+>**Important Note:** Plugins installed using the experimental "managed plugins" feature in Docker 1.12 must be removed/uninstalled before upgrading.
+
+**New**
+
+- You can now edit filesharing paths
+- Memory can be allocated with 256 MiB steps
+- The storage location of the Linux volume can now be moved
+- More explicit proxy settings
+- Proxy can now be completly disabled
+- You can switch daemon tabs without losing your settings
+- You can't edit settings while docker is restarting
+
+**Upgrades**
+
+- Linux Kernel 4.8.14
+
+**Bug fixes and minor improvements**
+
+- Kernel boots with `vsyscall=emulate arg` and `CONFIG_LEGACY_VSYSCALL` is set to `NONE` in Moby
+
+### Beta 32 Release Notes (2016-12-07 1.13.0-rc3-beta32)
+
+**New**
+
+- Support for arm, aarch64, ppc64le architectures using qemu
+
+**Upgrades**
+
+- Docker 1.13.0-rc3
+- Docker Machine 0.9.0-rc2
+- Linux Kernel 4.8.12
+
+**Bug fixes and minor improvements**
+
+- VPNKit: Improved diagnostics
+- Fix vsock deadlock under heavy write load
+- On the beta channel you can't opt-out of analytics
+- If you opt-out of analytics, you're prompted for approval before a bug report is sent
+
+### Beta 31 Release Notes (2016-12-01 1.13.0-rc2-beta31)
+
+**New**
+
+- Dedicated preference pane for advanced configuration of the docker daemon (edit daemon.json). See [[Daemon Advanced (JSON configuration file)](index.md#daemon-advanced-json-configuration-file).
+
+- Docker Experimental mode can be toggled. See [Daemon Basic (experimental mode and registries)](index.md#daemon-basic-experimental-mode-and-registries).
+
+**Upgrades**
+
+- Docker 1.13.0-rc2
+- Docker Compose 1.9.0
+- Docker Machine 0.9.0-rc1
+- Linux kernel 4.8.10
+
+**Bug fixes and minor improvements**
+
+- Fixed bug where search domain could be read as `DomainName`
+- VPNKit: don't permute resource records in responses
+- VPNKit: reduced the amount of log spam
+- Dedicated preference pane for HTTP proxy settings
+- Dedicated preference pane for CPU & Memory computing resources
+- Privacy settings moved to the general preference pane
+- Fixed an issue where proxy settings were erased if registries or mirrors changed.
+- Tab key is now cycling through tabs while setting proxy parameters
+- Fixed an issue where the preference pane disappeared when the welcome whale menu was closed
+
+### Beta 30 Release Notes (2016-11-10 1.12.3-beta30)
+
+**New**
+
+- Better support for Split DNS VPN configurations
+
+**Upgrades**
+
+- Docker Compose 1.9.0-rc4
+- Linux kernel 4.4.30
+
+**Bug fixes and minor changes**
+
+- HyperKit: code cleanup and minor fixes
+- VPNKit: improvements to DNS handling
+- Improvements to Logging and Diagnostics
+- osxfs: switched to `libev/kqueue` to improve latency
+
 
 ### Beta 29.3 Release Notes (2016-11-02 1.12.3-beta29.3)
 
@@ -918,13 +1077,13 @@ work yet.
 **New Features and Upgrades**
 
 - GUI
-  - Add VPN mode/`hostnet` to Preferences
-  - Add disable Time Machine backups of VM disk image to Preferences
+  - Added VPN mode/`hostnet` to Preferences
+  - Added disable Time Machine backups of VM disk image to Preferences
 
 
 - Added `pinata` configuration tool for experimental Preferences
 
-- File System: Add guest-to-guest FIFO and socket file support
+- File System: Added guest-to-guest FIFO and socket file support
 
 - Upgraded Notary to version 0.2
 
@@ -956,7 +1115,7 @@ work yet.
   - Added MixPanel support
 
 
-- Add HockeyApp crash reporting
+- Added HockeyApp crash reporting
 - Improve signal handling on task manager
 - Use ISO timestamps with microsecond precision for logging
 - Clean up logging format
@@ -968,7 +1127,7 @@ work yet.
 
 
 - Hypervisor
-  - Add PID file
+  - Added PID file
   - Networking reliability improvements
 
 

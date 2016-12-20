@@ -1,7 +1,6 @@
 ---
 description: Docker Store frequently asked questions
-keywords:
-- Docker, docker, store, purchase images
+keywords: Docker, docker, store, purchase images
 title: Docker Store frequently asked questions (FAQ)
 ---
 
@@ -56,7 +55,7 @@ each month, and the charge will come from Docker, Inc. Your billing cycle is a
 If your payment failed because the card expired or was canceled, you need to
 update your credit card information or add an additional card.
 
-Click the user icon menu menu in the upper right corner, and click
+Click the user icon menu in the upper right corner, and click
 **Billing**. Click the **Payment methods** tab to update your credit card and
 contact information.
 

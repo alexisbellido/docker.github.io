@@ -1,7 +1,6 @@
 ---
 description: How to install Docker Compose
-keywords:
-- compose, orchestration, install, installation, docker, documentation
+keywords: compose, orchestration, install, installation, docker, documentation
 title: Install Docker Compose
 ---
 
@@ -32,14 +31,14 @@ which the release page specifies, in your terminal.
 
      The following is an example command illustrating the format:
 
-        curl -L "https://github.com/docker/compose/releases/download/1.8.1/docker-compose-$(uname -s)-$(uname -m)" > /usr/local/bin/docker-compose
+        $ curl -L "https://github.com/docker/compose/releases/download/1.9.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
      If you have problems installing with `curl`, see
      [Alternative Install Options](install.md#alternative-install-options).
 
 5. Apply executable permissions to the binary:
 
-        $ chmod +x /usr/local/bin/docker-compose
+        chmod +x /usr/local/bin/docker-compose
 
 6.  Optionally, install [command completion](completion.md) for the
 `bash` and `zsh` shell.
@@ -47,7 +46,7 @@ which the release page specifies, in your terminal.
 7. Test the installation.
 
         $ docker-compose --version
-        docker-compose version: 1.8.1
+        docker-compose version: 1.9.0
 
 
 ## Alternative install options
@@ -61,7 +60,7 @@ have python system packages that conflict with docker-compose dependencies. See
 the [virtualenv tutorial](http://docs.python-guide.org/en/latest/dev/virtualenvs/)
 to get started.
 
-    $ pip install docker-compose
+    pip install docker-compose
 
 > **Note:** pip version 6.0 or greater is required
 
@@ -70,7 +69,7 @@ to get started.
 Compose can also be run inside a container, from a small bash script wrapper.
 To install compose as a container run:
 
-    $ curl -L https://github.com/docker/compose/releases/download/1.8.1/run.sh > /usr/local/bin/docker-compose
+    $ curl -L https://github.com/docker/compose/releases/download/1.9.0/run.sh > /usr/local/bin/docker-compose
     $ chmod +x /usr/local/bin/docker-compose
 
 ## Master builds
@@ -93,24 +92,22 @@ to run so that you don't end up with two sets of them. If you want to keep using
 your existing containers (for example, because they have data volumes you want
 to preserve) you can use compose 1.5.x to migrate them with the following command:
 
-    $ docker-compose migrate-to-labels
+    docker-compose migrate-to-labels
 
 Alternatively, if you're not worried about keeping them, you can remove them.
 Compose will just create new ones.
 
-    $ docker rm -f -v myapp_web_1 myapp_db_1 ...
-
+    docker rm -f -v myapp_web_1 myapp_db_1 ...
 
 ## Uninstallation
 
 To uninstall Docker Compose if you installed using `curl`:
 
-    $ rm /usr/local/bin/docker-compose
-
+    rm /usr/local/bin/docker-compose
 
 To uninstall Docker Compose if you installed using `pip`:
 
-    $ pip uninstall docker-compose
+    pip uninstall docker-compose
 
 >**Note**: If you get a "Permission denied" error using either of the above
 >methods, you probably do not have the proper permissions to remove

@@ -1,7 +1,6 @@
 ---
 description: Introduction and Overview of Compose
-keywords:
-- documentation, docs,  docker, compose, orchestration,  containers
+keywords: documentation, docs,  docker, compose, orchestration,  containers
 title: Docker Compose
 ---
 
@@ -10,6 +9,7 @@ Compose is a tool for defining and running multi-container Docker applications. 
 - [Compose Overview](overview.md)
 - [Install Compose](install.md)
 - [Getting Started](gettingstarted.md)
+- [Get started with Drupal](http://docker4drupal.org/)
 - [Get started with Django](django.md)
 - [Get started with Rails](rails.md)
 - [Get started with WordPress](wordpress.md)

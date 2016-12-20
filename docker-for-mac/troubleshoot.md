@@ -1,11 +1,12 @@
 ---
+description: Troubleshooting, logs, and known issues
+keywords: mac, troubleshooting, logs, issues
 redirect_from:
 - /mackit/troubleshoot/
-description: Troubleshooting, logs, and known issues
-keywords:
-- mac, troubleshooting, logs, issues
 title: Logs and troubleshooting
 ---
+
+<!-- /TOC -->
 
 Here is information about how to diagnose and troubleshoot problems, send logs
 and communicate with the Docker for Mac team, use our forums and Knowledge Hub,
@@ -35,7 +36,10 @@ Docker Team:
 
 ![Diagnostic results only](images/settings-diagnostic-results-only.png)
 
-* **Diagnose & Upload** - Runs diagnostics, shows results, and auto-uploads the diagnostic results to Docker. A diagnostic ID is auto-generated. You can refer to this ID when communicating with the Docker Team. Optionally, you can open an issue on GitHub using the uploaded results and ID as a basis.
+* **Diagnose & Upload** - Runs diagnostics, shows results, and auto-uploads the
+diagnostic results to Docker. A diagnostic ID is auto-generated. You can refer
+to this ID when communicating with the Docker Team. Optionally, you can open
+an issue on GitHub using the uploaded results and ID as a basis.
 
 ![Diagnostics & Feedback](images/settings-diagnose-id.png)
 
@@ -115,6 +119,17 @@ auto-generated reports on packages.
 <a name="troubleshoot"></a>
 
 ## Troubleshooting
+
+### Volume mounting requires file sharing for any project directories outside of `/Users`
+
+If you are using mounted volumes and get runtime errors indicating an
+application file is not found, a volume mount is denied, or a service cannot
+start (e.g., with [Docker Compose](/compose/gettingstarted.md)), you might
+need to enable [file sharing](index.md#file-sharing).
+
+Volume mounting requires shared drives for projects that live outside of the
+`/Users` directory. Go to <img src="images/whale-x.png"> --> **Preferences** -->
+**File sharing** and share the drive that contains the Dockerfile and volume.
 
 ### Recreate or update your containers after Beta 18 upgrade
 
@@ -235,7 +250,7 @@ know before you install](index.md#what-to-know-before-you-install).
 
   * Restart your Mac to stop / discard any vestige of the daemon running from the previously installed version.
 
-  * Run the the uninstall commands from the menu.
+  * Run the uninstall commands from the menu.
 
   <p></p>
 
@@ -263,15 +278,14 @@ environments, see [Docker for Mac vs. Docker Toolbox](docker-toolbox.md).
 
 <p></p>
 
-* If you see errors like `Bind for 0.0.0.0:8080 failed: port is already allocated` or
-  `listen tcp:0.0.0.0:8080: bind: address is already in use`:
+* If you see errors like `Bind for 0.0.0.0:8080 failed: port is already allocated` or `listen tcp:0.0.0.0:8080: bind: address is already in use`:
 
-	  These errors are often caused by some other software on the Mac using those ports.
-		Run `lsof -i tcp:8080` to discover the name and pid of the other process and
-		decide whether to shut the other process down, or to use a different port in
-		your docker app.
+  * These errors are often caused by some other software on the Mac using those
+ports.
 
-See also [Known Issues](troubleshoot.md#known-issues) on this page, and the [FAQs](faqs.md) topic.
+  * Run `lsof -i tcp:8080` to discover the name and pid of the other process and
+decide whether to shut the other process down, or to use a different port in
+your docker app.
 
 ## Known issues
 
@@ -328,12 +342,15 @@ Alternatively you could create a plain-text TCP proxy on localhost:1234 using:
   - Zend Framework
   - PHP applications that use [Composer](https://getcomposer.org) to install dependencies in a ```vendor``` folder<br><br>
 
-  As a work-around for this behavior, you can put vendor or third-party library directories in Docker volumes, perform temporary file system
-    operations outside of `osxfs` mounts, and use third-party tools like
-    Unison or `rsync` to synchronize between container directories and
-    bind-mounted directories. We are actively working on `osxfs`
-    performance using a number of different techniques. To learn more, please see the topic on [Performance issues, solutions, and roadmap](osxfs.md#performance-issues-solutions-and-roadmap).
+  As a work-around for this behavior, you can put vendor or third-party library
+directories in Docker volumes, perform temporary file system operations outside
+of `osxfs` mounts, and use third-party tools like Unison or `rsync` to
+synchronize between container directories and bind-mounted directories. We are
+actively working on `osxfs` performance using a number of different techniques.
+To learn more, please see the topic on [Performance issues, solutions, and
+roadmap](osxfs.md#performance-issues-solutions-and-roadmap).
 
+<p></p>
 
 * If your system does not have access to an NTP server, then after a hibernate the time seen by Docker for Mac may be considerably out of sync with the host. Furthermore, the time may slowly drift out of sync during use. To manually reset the time after hibernation, run:
 

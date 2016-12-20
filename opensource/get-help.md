@@ -1,7 +1,6 @@
 ---
 description: Describes Docker's communication channels
-keywords:
-- IRC, Google group, Twitter, blog,  Stackoverflow
+keywords: IRC, Google group, Twitter, blog,  Stackoverflow
 title: Where to chat or get help
 ---
 
@@ -12,8 +11,6 @@ title: Where to chat or get help
   background-color: transparent;
 }
 </style>
-
-# Where to chat or get help
 
 There are several communications channels you can use to chat with Docker
 community members and developers.

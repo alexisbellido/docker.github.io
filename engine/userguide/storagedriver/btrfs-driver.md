@@ -1,7 +1,6 @@
 ---
 description: Learn how to optimize your use of Btrfs driver.
-keywords:
-- 'container, storage, driver, Btrfs '
+keywords: 'container, storage, driver, Btrfs '
 title: Docker and Btrfs in practice
 ---
 
@@ -42,7 +41,7 @@ structure that hooks into the wider Unix filesystem.
 
 Subvolumes are natively copy-on-write and have space allocated to them
 on-demand from an underlying storage pool. They can also be nested and snapped.
- The diagram blow shows 4 subvolumes. 'Subvolume 2' and 'Subvolume 3' are
+ The diagram below shows 4 subvolumes. 'Subvolume 2' and 'Subvolume 3' are
 nested, whereas 'Subvolume 4' shows its own internal directory tree.
 
 ![](images/btfs_subvolume.jpg)

@@ -1,7 +1,6 @@
 ---
 description: Declare default environment variables in a file
-keywords:
-- fig, composition, compose, docker, orchestration, environment, env file
+keywords: fig, composition, compose, docker, orchestration, environment, env file
 title: Declare default environment variables in file
 ---
 
@@ -22,8 +21,10 @@ file, but can also be used to define the following
 [CLI variables](reference/envvars.md):
 
 - `COMPOSE_API_VERSION`
+- `COMPOSE_CONVERT_WINDOWS_PATHS`
 - `COMPOSE_FILE`
 - `COMPOSE_HTTP_TIMEOUT`
+- `COMPOSE_TLS_VERSION`
 - `COMPOSE_PROJECT_NAME`
 - `DOCKER_CERT_PATH`
 - `DOCKER_HOST`

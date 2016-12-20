@@ -1,33 +1,25 @@
 <!--Thanks for your contribution. See [CONTRIBUTING](CONTRIBUTING.md)
-    for this project's contribution guidelines. -->
+    for this project's contribution guidelines. Remove these comments
+    as you go.
 
-<!--DO NOT edit files and directories listed in .NOT_EDITED_HERE.txt.
-    These are maintained in upstream repos and changes here will be lost.-->
+    DO NOT edit files and directories listed in _data/not_edited_here.yaml.
+    These are maintained in upstream repos and changes here will be lost.
 
-### Describe the proposed changes
+    Help us merge your changes more quickly by adding details and setting metadata
+    (such as labels, milestones, and reviewers) over at the left-hand side.-->
 
-<!-- Tell us what you did and why. You can leave this off if the PR title
-     is descriptive. The commit message will be added to the end of this form.-->
+### Proposed changes
 
-### Project version
+<!--Tell us what you did and why-->
 
-<!-- If this change only applies to a future version of a project (like
-     Docker Engine 1.13), note that here and base your work on the `vnext-`
-     branch for your project. -->
+### Unreleased project version (optional)
 
-### Related issue
+<!--If this change only applies to an unreleased version of a project, note
+    that here and base your work on the `vnext-` branch for your project. If
+    this doesn't apply to this PR, you can remove this whole section.
+    Set a milestone if appropriate. -->
 
-<!-- If this relates to an issue or PR in this repo, refer to it like
-     #1234, or 'Fixes #1234' or 'Closes #1234'. -->
+### Related issues (optional)
 
-### Related issue or PR in another project
-
-<!-- Links to issues or pull requests in other repositories if applicable. -->
-
-### Please take a look
-
-<!-- At-mention specific individuals or groups who should take a
-     look at this PR. For instance, @exampleuser123 -->
-
-
-<!-- To improve this template, edit .github/PULL_REQUEST_TEMPLATE.md. -->
+<!--Refer to related PRs or issues: #1234, or 'Fixes #1234' or 'Closes #1234'.
+    Or link to full URLs to issues or pull requests in other Github projects -->

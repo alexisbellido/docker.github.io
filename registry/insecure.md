@@ -1,7 +1,6 @@
 ---
 description: Deploying a Registry in an insecure fashion
-keywords:
-- registry, on-prem, images, tags, repository, distribution, insecure
+keywords: registry, on-prem, images, tags, repository, distribution, insecure
 title: Test an insecure registry
 ---
 
@@ -51,9 +50,9 @@ This is more secure than the insecure registry solution.  You must configure eve
 
 1. Generate your own certificate:
 
-    mkdir -p certs && openssl req \
-      -newkey rsa:4096 -nodes -sha256 -keyout certs/domain.key \
-      -x509 -days 365 -out certs/domain.crt
+        mkdir -p certs && openssl req \
+          -newkey rsa:4096 -nodes -sha256 -keyout certs/domain.key \
+          -x509 -days 365 -out certs/domain.crt
 
 2. Be sure to use the name `myregistrydomain.com` as a CN.
 

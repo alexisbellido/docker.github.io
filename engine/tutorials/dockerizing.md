@@ -1,10 +1,9 @@
 ---
+description: A simple 'Hello world' exercise that introduced you to Docker.
+keywords: docker guide, docker, docker platform, how to, dockerize, dockerizing apps, dockerizing applications, container, containers
 redirect_from:
 - /engine/userguide/containers/dockerizing/
 - /engine/userguide/dockerizing/
-description: A simple 'Hello world' exercise that introduced you to Docker.
-keywords:
-- docker guide, docker, docker platform, how to, dockerize, dockerizing apps, dockerizing applications, container,  containers
 title: Hello world in a container
 ---
 
@@ -62,7 +61,7 @@ In this example:
 * `ubuntu` is the image you would like to run.
 * `-t` flag assigns a pseudo-tty or terminal inside the new container.
 * `-i` flag allows you to make an interactive connection by
-grabbing the standard in (`STDIN`) of the container.
+grabbing the standard input (`STDIN`) of the container.
 * `/bin/bash` launches a Bash shell inside our container.
 
 The container launches. We can see there is a
@@ -192,9 +191,9 @@ ran an *interactive container* that ran in the foreground. You also ran a
 about several Docker commands:
 
 * `docker ps` - Lists containers.
-* `docker logs` - Shows us the standard output of a container.
+* `docker logs` - Shows the standard output of a container.
 * `docker stop` - Stops running containers.
 
-Now, you have the basis learn more about Docker and how to do some more advanced
+Now, you have the basis to learn more about Docker and how to do some more advanced
 tasks. Go to ["*Run a simple application*"](usingdocker.md) to actually build a
 web application with the Docker client.

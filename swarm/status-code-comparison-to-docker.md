@@ -1,7 +1,8 @@
 ---
+advisory: swarm-standalone
+hide_from_sitemap: true
 description: Swarm API response codes
-keywords:
-- docker, swarm, response, code,  api
+keywords: docker, swarm, response, code, api
 title: Swarm vs. Engine response codes
 ---
 

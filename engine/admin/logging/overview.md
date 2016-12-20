@@ -1,17 +1,30 @@
 ---
+description: Configure logging driver.
+keywords: docker, logging, driver, Fluentd
 redirect_from:
 - /engine/reference/logging/overview/
-description: Configure logging driver.
-keywords:
-- docker, logging, driver, Fluentd
 title: Configure logging drivers
 ---
 
+Docker comes with support of multiple logging mechanisms. Use the
+`--log-driver=VALUE` when starting the `dockerd` daemon to set default logging
+driver. You can use the `--log-opt NAME=VALUE` flag to specify extra options for
+selected driver.
+
 The container can have a different logging driver than the Docker daemon. Use
 the `--log-driver=VALUE` with the `docker run` command to configure the
-container's logging driver. If the `--log-driver` option is not set, docker
-uses the default (`json-file`) logging driver. The following options are
-supported:
+container's logging driver. If the `--log-driver` option is not set, containers
+use the daemon's default logging driver, which defaults to `json-file`. To check
+the default logging driver for your Docker daemon, search for `Logging Driver` in the
+output of the `docker info` command:
+
+```bash
+$ docker info |grep Logging
+
+Logging Driver: json-file
+```
+
+The following options are supported:
 
 | Driver      | Description                                                                                                                   |
 |-------------|-------------------------------------------------------------------------------------------------------------------------------|
@@ -26,7 +39,7 @@ supported:
 | `etwlogs`   | ETW logging driver for Docker on Windows. Writes log messages as ETW events.                                                  |
 | `gcplogs`   | Google Cloud Logging driver for Docker. Writes log messages to Google Cloud Logging.                                          |
 
-The `docker logs`command is available only for the `json-file` and `journald`
+The `docker logs` command is available only for the `json-file` and `journald`
 logging drivers.
 
 The `labels` and `env` options add additional attributes for use with logging
@@ -220,7 +233,7 @@ compresses each log message. The accepted values are `gzip`, `zlib` and `none`.
 
 The `gelf-compression-level` option can be used to change the level of
 compression when `gzip` or `zlib` is selected as `gelf-compression-type`.
-Accepted value must be from from -1 to 9 (BestCompression). Higher levels
+Accepted value must be from -1 to 9 (BestCompression). Higher levels
 typically run slower but compress more. Default value is 1 (BestSpeed).
 
 ## Fluentd options

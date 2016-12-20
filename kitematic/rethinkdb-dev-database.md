@@ -1,8 +1,8 @@
 ---
+advisory: kitematic
 description: Tutorial demonstrating the setup of an RethinkDB database for development
-keywords:
-- docker, documentation, about, technology, kitematic, gui, rethink,  tutorial
-title: "Kitematic tutorial: Create a local RethinkDB database for development"
+keywords: docker, documentation, about, technology, kitematic, gui, rethink, tutorial
+title: 'Kitematic tutorial: Create a local RethinkDB database for development'
 ---
 
 In this tutorial, you will:

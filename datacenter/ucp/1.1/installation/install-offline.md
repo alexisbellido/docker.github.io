@@ -1,10 +1,9 @@
 ---
-redirect_from:
-- /ucp/installation/install-offline/
 description: Learn how to install Docker Universal Control Plane. on a machine with
   no internet access.
-keywords:
-- docker, ucp, install, offline
+keywords: docker, ucp, install, offline
+redirect_from:
+- /ucp/installation/install-offline/
 title: Install UCP offline
 ---
 
@@ -16,42 +15,45 @@ is that instead of pulling the UCP images from Docker Hub, you use a
 computer that is connected to the internet to download a single package with
 all the images. Then you copy that package to the host where you’ll install UCP.
 
+## Versions available
 
-1.  Get the UCP package.
+{% include components/ddc_url_list.html %}
 
-    Use a computer with internet access to download a single package with all
-    Docker Datacenter components:
+## Download the offline package
 
-    ```none
-    $ wget https://packages.docker.com/caas/ucp-1.1.3_dtr-2.0.3.tar.gz -O docker-datacenter.tar.gz
+Use a computer with internet access to download a single package with all
+Docker Datacenter components:
+
+```bash
+$ wget <package-url> -O docker-datacenter.tar.gz
+```
+
+Now that you have the package in your local machine, you can transfer it to
+the machines where you want to install UCP.
+
+For each machine that you want to manage with UCP:
+
+1.  Copy the Docker Datacenter package to that machine.
+
+    ```bash
+    $ scp docker-datacenter.tar.gz <user>@<host>:/tmp
     ```
 
-2.  Transfer the package to the offline node.
+2.  Use ssh to login into the hosts where you transferred the package.
 
-    Now that you have the UCP package in your machine, you can transfer it to the
-    host where you'll be installing Docker UCP. You can use the Secure Copy command
-    for this:
+3.  Load the Docker Datacenter images.
 
-    ```none
-    $ scp docker-datacenter.tar.gz $USER@$UCP_HOST:/tmp
-    ```
+    Once the package is transferred to the hosts, you can use the
+    `docker load` command, to load the Docker images from the tar archive:
 
-3.  Login into the host where you transferred the images.
-
-4.  Load the UCP images.
-
-    Once the UCP package is transferred to the host, you can use the
-    `docker load` command, to load the images from the tar archive. On the host
-    were you are going to install UCP, run:
-
-    ```none
+    ```bash
     $ docker load < docker-datacenter.tar.gz
     ```
 
-5.  Install Docker UCP.
+## Install UCP
 
-    Now that the offline host has all the images needed to install UCP,
-    you can [install Docker UCP that host](install-production.md).
+Now that the offline hosts have all the images needed to install UCP,
+you can [install Docker UCP on that host](install-production.md).
 
 
 ## Where to go next

@@ -1,7 +1,6 @@
 ---
 description: Learn how to optimize your use of device mapper driver.
-keywords:
-- container, storage, driver, device mapper
+keywords: container, storage, driver, device mapper
 title: Docker and the Device Mapper storage driver
 ---
 
@@ -166,6 +165,7 @@ following distributions support the driver:
 * Ubuntu 12.04
 * Ubuntu 14.04
 * Debian
+* Arch Linux
 
 Docker hosts running the `devicemapper` storage driver default to a
 configuration mode known as `loop-lvm`. This mode uses sparse files to build
@@ -217,10 +217,13 @@ assumes that the Docker daemon is in the `stopped` state.
 
 1. Log in to the Docker host you want to configure and stop the Docker daemon.
 
-2. Install the LVM2 package.
+2. Install the LVM2 and `thin-provisioning-tools` packages.
 
    The LVM2 package includes the userspace toolset that provides logical volume
    management facilities on linux.
+
+	 The `thin-provisioning-tools` package allows you to activate and manage your
+	 pool.
 
 3. Create a physical volume replacing `/dev/xvdf` with your block device.
 
@@ -371,7 +374,7 @@ If you run into repeated problems with thin pool, you can use the
 operations fail with a warning when the free space is at or near the minimum.
 For information, see <a
 href="/../../reference/commandline/dockerd/#storage-driver-options"
-target="_blank">the storage driver options in the Engine daemon reference</a>.
+target="_blank">the storage driver options in the Engine daemon reference</a>.<!-- fix_-->
 
 
 ### Examine devicemapper structures on the host
@@ -472,7 +475,7 @@ The `Data Space` values show that the pool is 100GB total. This example extends 
    -rw------- 1 root root 2.0G Mar 31 11:17 metadata
    ```
 
-2. Truncate `data` file to the size of the `metadata` file (approximage 200GB).
+2. Truncate `data` file to the size of the `metadata` file (approximately 200GB).
 
    ```bash
    $ sudo truncate -s 214748364800 /var/lib/docker/devicemapper/devicemapper/data

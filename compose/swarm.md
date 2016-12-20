@@ -1,7 +1,8 @@
 ---
+advisory: swarm-standalone
+hide_from_sitemap: true
 description: How to use Compose and Swarm together to deploy apps to multi-host clusters
-keywords:
-- documentation, docs,  docker, compose, orchestration, containers, swarm
+keywords: documentation, docs,  docker, compose, orchestration, containers, swarm
 title: Use Compose with Swarm
 ---
 
@@ -28,7 +29,6 @@ set up a Swarm cluster with [Docker Machine](/machine/overview.md) and the overl
 
     $ eval "$(docker-machine env --swarm <name of swarm master machine>)"
     $ docker-compose up
-
 
 ## Limitations
 
@@ -84,15 +84,15 @@ all three services end up on the same node:
         image: foo
         volumes_from: ["bar"]
         network_mode: "service:baz"
-        labels:
+        environment:
           - "constraint:node==node-1"
       bar:
         image: bar
-        labels:
+        environment:
           - "constraint:node==node-1"
       baz:
         image: baz
-        labels:
+        environment:
           - "constraint:node==node-1"
 
 ### Host ports and recreating containers
@@ -136,7 +136,6 @@ There are two viable workarounds for this problem:
         $ docker-compose stop web
         $ docker-compose rm -f web
         $ docker-compose up web
-
 
 ## Scheduling containers
 

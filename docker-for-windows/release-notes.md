@@ -1,9 +1,8 @@
 ---
+description: Change log / release notes per release
+keywords: pinata, alpha, tutorial
 redirect_from:
 - /winkit/release-notes/
-description: Change log / release notes per release
-keywords:
-- pinata, alpha, tutorial
 title: Docker for Windows Release notes
 ---
 
@@ -22,6 +21,87 @@ about both kinds of releases, and download stable and beta product installers at
 * [Alpha Release Notes](release-notes.md#alpha-release-notes)
 
 ## Stable Release Notes
+
+### Docker for Windows 1.12.3, 2016-11-09 (stable)
+
+**New**
+
+- Restore the VM's configuration when it was changed by the user
+
+- Detect firewall configuration that might block the file sharing
+
+- Send more GUI usage statistics to help us improve the product
+
+- The path to HyperV disks is not hardcoded anymore, making the Toolbox import work with non-standard path
+
+- Verify that ALL HyperV features are enabled
+
+- Added Moby console to the logs
+
+- Save the current engine with the other settings
+
+- Notary version 0.4.2 installed
+
+- Reworked the File Sharing dialog and underlying mechanism
+  - Pre-fill username
+  - Faster and more reliable feedback when the user/password is not valid
+  - Better support for domain users
+  - Error message in Logs when File Sharing failed for other reasons
+
+**Upgrades**
+
+- Docker 1.12.3
+- Linux Kernel 4.4.27
+- Docker Machine 0.8.2
+- Docker Compose 1.8.1
+- aufs 20160912
+
+**Bug fixes and minor changes**
+
+**General**
+
+- Added the settings to the diagnostics
+
+- Make sure we don't use an older Nlog library from the GAC
+
+- Fix a password escaping regression
+
+- Support writing large values to the database, specially for trusted CAs
+
+- Preserve the Powershell stacktraces
+
+- Write OS and Application versions at the top of each log file
+
+- Don't recreate the VM if only the DNS server is set
+
+- The uninstaller now kills the service if it failed to stop it properly
+
+- Improve debug information
+
+**Networking**
+
+- VpnKit is now restarted if it dies
+
+- VpnKit: impose a connection limit to avoid exhausting file descriptors
+
+- VpnKit: handle UDP datagrams larger than 2035 bytes
+
+- VpnKit: reduce the number of file descriptors consumed by DNS
+
+**File sharing**
+
+
+- Faster mount/unmount of shared drives
+
+- Added a timeout to mounting/unmounting a shared drive
+
+**Hyper-V**
+
+- Make sure invalid "DockerNat" switches are not used
+
+**Moby**
+
+- Increase default ulimit for memlock (fixes [https://github.com/docker/for-mac/issues/801](https://github.com/docker/for-mac/issues/801))
 
 ### Docker for Windows 1.12.1, 2016-09-16 (stable)
 
@@ -86,7 +166,7 @@ about both kinds of releases, and download stable and beta product installers at
 * VpnKit supports search domains
 * VpnKit is now compiled with OCaml 4.03 rather than 4.02.3
 
-**Filesharing**
+**File sharing**
 
 * Set `cifs` version to 3.02
 
@@ -126,8 +206,127 @@ about both kinds of releases, and download stable and beta product installers at
 * Docker Machine 0.8.0
 * Docker Compose 1.8.0
 
-
 ## Beta Release Notes
+
+### Beta 33 Release Notes (2016-12-15 1.13.0-rc3-beta33)
+
+>**Important Note:** Plugins installed using the experimental "managed plugins" feature in Docker 1.12 must be removed/uninstalled before upgrading.
+
+**New**
+
+- VHDX file containing images and non-host mounted volumes can be moved (using "advanced" tab in the UI)
+
+**Upgrades**
+
+- Linux Kernel 4.8.14
+
+**Bug fixes and minor changes**
+
+- Bugsnag reports should work again
+- Fixed a memory leak related to logs and Windows Containers
+
+### Beta 32.1 Release Notes (2016-12-09 1.13.0-rc3-beta32.1)
+
+>**Important Note:** Plugins installed using the experimental "managed plugins" feature in Docker 1.12 must be removed/uninstalled before upgrading.
+
+**Hotfixes**
+
+- Fix Hyper-V Windows Feature detection
+
+**New**
+
+- Windows containers settings panel
+- Windows containers: Restart from the settings panel
+- Windows containers: Factory default
+- Windows containers: Modify Daemon.json
+- Windows containers: Proxy settings can be modified
+- Support for arm, aarch64, ppc64le architectures using qemu
+
+**Upgrades**
+
+- Docker 1.13.0-rc3
+- Docker Machine 0.9.0-rc2
+- Linux Kernel 4.8.12
+
+**Bug fixes and minor changes**
+
+- Time drifts between Windows and Linux containers should disapear
+- VPNKit: Improved diagnostics
+- Improvements in drive sharing code
+- Removed the legacy "Disable oplocks" trick for enabling Windows Containers on older insider previews
+
+### Beta 32 Release Notes (2016-12-07 1.13.0-rc3-beta32)
+
+>**Important Note**:
+>
+>  Plugins installed using the experimental "managed plugins" feature in Docker 1.12 must be removed/uninstalled before upgrading.
+
+**New**
+
+- Windows containers settings panel and options are working. In previous releases, settings were not implemented for [Windows containers
+mode](index.md#switch-between-windows-and-linux-containers-beta-feature). (See
+[About the Docker Windows containers specific
+dialogs](index.md#about-the-docker-windows-containers-specific-dialogs).)
+- Windows containers: Restart from the settings panel works
+- Windows containers: Factory default
+- Windows containers: `Daemon.json` can be modified
+- Windows containers: Proxy settings can be modified
+- Support for arm, aarch64, ppc64le architectures using qemu
+
+**Upgrades**
+
+- Docker 1.13.0-rc3
+- Docker Machine 0.9.0-rc2
+- Linux Kernel 4.8.12
+
+**Bug fixes and minor changes**
+
+- Time drifts between Windows and Linux containers should disapear
+- VPNKit: Improved diagnostics
+- Improvements in drive sharing code
+- Removed the legacy "Disable oplocks" trick for enabling Windows Containers on older insider previews
+
+### Beta 31 Release Notes (2016-12-01 1.13.0-rc2-beta31)
+
+**New**
+
+- HTTP/HTTPS proxy settings are used by the Windows Container daemon to pull images
+- TRIM support for disk (shrinks virtual disk)
+- VM's time synchronization is forced after the host wakes from sleep mode
+
+**Upgrades**
+
+- Docker 1.13.0-rc2
+- Dockerd 1.13.0-rc2 (Windows Containers)
+- Docker Compose 1.9.0
+- Docker Machine 0.9.0-rc1
+- Linux kernel 4.8.10
+
+**Bug fixes and minor changes**
+
+- VPNKit: don't permute resource records in responses
+- VPNKit: reduced the amount of log spam
+- Optimized boot process
+- Diagnostics are improved and faster
+- Log the error when the GUI fails to initialize
+- Trend Micro Office Scan made the API proxy think no drive was shared, fixed
+- Show a link to the virtualizaton documentation
+- Flush logs to file more often
+- Fixed the URL to the SMB/firewall documentation
+- Properly remove duplicate firewall rules
+
+### Beta 30 Release Notes (2016-11-10 1.12.3-beta30)
+
+**Upgrades**
+
+- Docker Compose 1.9.0-rc4
+- Linux kernel 4.4.30
+
+**Bug fixes and minor changes**
+
+- Optimized disk on stop
+- Always remove the disk on factory reset
+- Improvements to Logging and Diagnostics
 
 ### Beta 29.3 Release Notes (2016-11-02 1.12.3-beta29.3)
 
@@ -178,7 +377,7 @@ work. Some insider builds may not work.
 
 - Faster mount/unmount of shared drives
 - Added a timeout to mounting/unmounting a shared drive
-- Add the settings to the diagnostics
+- Added the settings to the diagnostics
 - Increase default ulimit for memlock (fixes https://github.com/docker/for-mac/issues/801)
 - Make sure we don't use an older Nlog library from the GAC
 
@@ -536,7 +735,7 @@ Unreleased. See Beta 23 for changes.
 * Fix some cases where `dotnet restore` could hang
 * Fixed `docker inspect` on an image
 * Removed the console from hyper-v manager
-* Improved diagnostic for VPN connection and add logs for the service port openers
+* Improved diagnostic for VPN connection and addedlogs for the service port openers
 * Improve Moby's boot sequence to adapt to longer boot time when swarm services are running
 * Forcefully turn off a VM that won't shut down
 * Clicking on a link from the changelog opens a browser
@@ -661,9 +860,9 @@ This Beta release includes some significant changes:
 * Due to limitation in the Windows NAT implementation, co-existence with other NAT prefixes needs to be carefully managed. See [NAT Configuration](troubleshoot.md#nat-configuration) in [Troubleshooting](troubleshoot.md) for more details.
 
 
-### Beta 11b Hot Fix Release (2016-05-11 1.11.1-beta11b)
+### Beta 11b Release (2016-05-11 1.11.1-beta11b)
 
-**Hot fixes**
+**Hotfixes**
 
 * Fixed an issue with named pipe permissions that prevented Docker from starting
 
@@ -882,7 +1081,7 @@ are working on a solution.
 
 * Remove debug console
 * Open browser with hyper-v installation instructions
-* Add Cloudfront for downloads from Europe
+* Added Cloudfront for downloads from Europe
 * Capture qemu logs during toolbox upgrades
 * Rename alpha distribution channel to beta
 
@@ -1005,14 +1204,3 @@ are working on a solution.
 **Networking**
 
   - live debugging Node.js application
-
-	<hr style="color:#99CC99" />
-	<ul class="media">
-		<div class="media_content">
-		<div data-mh="mh_docker_projects">
-		<h6> <a href="mailto:feedback@docker.com?subject=Docker%20Feedback"><img src="../../images/chat.png" alt="chat icon"></a> <a href="mailto:feedback@docker.com?subject=Docker%20Feedback">Help improve the documentation</a></h3>
-			<p>
-	    Email us at <a href="mailto:feedback@docker.com?subject=Docker%20Feedback">feedback@docker.com</a>
-	    </p>
-		</div>
-		</div>

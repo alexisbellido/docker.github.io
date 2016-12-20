@@ -1,10 +1,9 @@
 ---
+description: Push images to Docker Cloud
+keywords: images, private, registry
 redirect_from:
 - /docker-cloud/getting-started/intermediate/pushing-images-to-dockercloud/
 - /docker-cloud/tutorials/pushing-images-to-dockercloud/
-description: Push images to Docker Cloud
-keywords:
-- images, private, registry
 title: Push images to Docker Cloud
 ---
 
@@ -16,7 +15,7 @@ Images pushed to Docker Hub automatically appear for you in the **Launch new
 service** wizard.
 
 > **Note**: You must use Docker Engine 1.6 or later to push to Docker Hub.
-Follow the <a href="http://docs.docker.com/installation/" target="_blank">official installation instructions</a> depending on your system.
+Follow the <a href="/installation/" target="_blank">official installation instructions</a> depending on your system.
 
 1. In a terminal window, set the environment variable **DOCKER_ID_USER** as *your username* in Docker Cloud.
 
